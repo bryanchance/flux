@@ -4,11 +4,13 @@ package stdlib
 
 import (
 	ast "github.com/influxdata/flux/ast"
+	v1 "github.com/influxdata/flux/stdlib/influxdata/influxdb/v1"
 	testdata "github.com/influxdata/flux/stdlib/testing/testdata"
 )
 
 var FluxTestPackages = func() []*ast.Package {
 	var pkgs []*ast.Package
+	pkgs = append(pkgs, v1.FluxTestPackages...)
 	pkgs = append(pkgs, testdata.FluxTestPackages...)
 	return pkgs
 }()
